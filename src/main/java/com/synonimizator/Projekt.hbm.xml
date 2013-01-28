@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-11-18 22:37:38 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.synonimizator.Projekt" table="PROJEKT">
+  <id name="projektId" type="long">
+   <column name="PROJEKTID"/>
+   <generator class="increment"/>
+  </id>
+  <property generated="never" lazy="false" name="nazwaProjektu" type="java.lang.String">
+   <column name="NAZWAPROJEKTU"/>
+  </property>
+  <property generated="never" lazy="false" name="email" type="java.lang.String">
+   <column name="EMAIL"/>
+  </property>
+  <set cascade="persist,merge,save-update,delete-orphan" fetch="select" lazy="true"
+   name="listaArtykulow" sort="unsorted" table="ARTYKUL">
+   <key column="projekt"/>
+   <one-to-many class="com.synonimizator.Artykul"/>
+  </set>
+ </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+         <!-- hibernate dialect -->
+                <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/mydb</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">ttt</property>
+        <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+
+        <!-- Automatic schema creation (begin) === -->
+
+        <property name="hibernate.hbm2ddl.auto">update</property> 
+        
+
+
+        <!-- Simple memory-only cache -->
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- ############################################ -->
+        <!-- # mapping files with external dependencies # -->
+        <!-- ############################################ -->
+
+        <mapping resource="com/synonimizator/Artykul.hbm.xml" />
+        <mapping resource="com/synonimizator/Projekt.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>

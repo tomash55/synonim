@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2012-11-18 22:37:38 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.synonimizator.Artykul" table="ARTYKUL">
+  <id name="artykulId" type="long">
+   <column name="ARTYKULID"/>
+   <generator class="increment"/>
+  </id>
+  <property generated="never" lazy="false" name="tytulSynonim" type="java.lang.String">
+   <column name="TYTULSYNONIM"/>
+  </property>
+  <property generated="never" lazy="false" name="tytulBazowy" type="java.lang.String">
+   <column name="TYTULBAZOWY"/>
+  </property>
+  <property generated="never" lazy="false" name="tekstSynonim" type="java.lang.String">
+   <column name="TEKSTSYNONIM"/>
+  </property>
+  <property generated="never" lazy="false" name="tekstBazowy" type="java.lang.String">
+   <column name="TEKSTBAZOWY"/>
+  </property>
+  <many-to-one class="com.synonimizator.Projekt" fetch="select" name="projekt">
+   <column name="PROJEKT"/>
+  </many-to-one>
+ </class>
+</hibernate-mapping>
